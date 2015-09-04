@@ -1,7 +1,14 @@
 # `redux-immutablejs`
 
-An alternative to [combineReducers](http://rackt.github.io/redux/docs/api/combineReducers.html) that supports
-[ImmutableJs](https://facebook.github.io/immutable-js/).
+Redux & Immutable integration
+
+This is a small library that aims to provide integration tools between [Redux](https://github.com/rackt/redux)
+& [ImmutableJs](https://facebook.github.io/immutable-js/) that fully conforms Redux _actions_ & _reducers_ standards.
+
+1. An alternative to [combineReducers](http://rackt.github.io/redux/docs/api/combineReducers.html) that supports
+[ImmutableJs](https://facebook.github.io/immutable-js/) for store initial state.
+1. An optional handler map reducer creator with immutable support.
+
 
 # Setup
 
@@ -22,6 +29,36 @@ const state = Immutable.fromJS({});
 const state = reducer(state);
 export default createStore(reducer, state);
 ```
+
+## Immutable Handler Map reducer creator
+
+Using `createReducer` is an optional function that creates a reducer from a collection of handlers, except
+getting ride of the _switch_ statement, it also provides the following benefits:
+
+1. If the given `initialState` type is mutated, it will get converted to an immutable type.
+1. An error is produced in case a reducer handler returns a mutated state (not recommended but this behavior can be disabled)
+
+```js
+import { createReducer } from 'redux-immutablejs'
+const initialState = Immutable.fromJS({ isAuth: false })
+
+/**
+ * Reducer domain that handles authentication & authorization.
+ **/
+export default createReducer(initialState, {
+  [LOGIN] (state, action) {
+    return state.merge({ 'isAuth': true, token: action.payload.token })
+  },
+
+  [LOGOUT] (domain) {
+    return domain.merge({ 'isAuth': false, 'current_identity': {}, token: undefined })
+  }
+})
+```
+
+
+Please note that this is optional and `combineReducers` should work just fine if you prefer the old `switch` way.
+
 
 # FAQ
 

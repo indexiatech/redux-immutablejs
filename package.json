@@ -1,5 +1,5 @@
 {
-  "name": "redux-immutable",
+  "name": "redux-immutablejs",
   "version": "0.0.1",
   "description": "Redux Immutable facilities",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "Indexia Tech",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/indexiatech/redux-immutable/issues"
+    "url": "https://github.com/indexiatech/redux-immutablejs/issues"
   },
   "homepage": "http://indexiatech.github.io/redux-immutable",
   "peerDependencies": {

@@ -13,7 +13,8 @@ import Immutable from 'immutable';
 export default function createReducer(initialState, handlers, enforceImmutable = true) {
   return (state = initialState, action) => {
     // convert the initial state to immutable
-    if (!Immutable.Iterable.isIterable) {
+    // This is useful in isomorphic apps where states were serialized
+    if (!Immutable.Iterable.isIterable(state)) {
      state = Immutable.fromJS(state);
     }
 

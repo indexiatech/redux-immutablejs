@@ -4,7 +4,10 @@
   "description": "Redux Immutable facilities",
   "scripts": {
     "start": "node server.js",
-    "build:lib": "babel src --out-dir lib"
+    "test": "mocha --recursive --compilers js:babel-core/register",
+    "test:watch": "npm test -- --watch",
+    "build:lib": "babel src --out-dir lib",
+    "build:publish": "npm publish"
   },
   "main": "lib/index.js",
   "repository": {
@@ -26,6 +29,7 @@
     "babel-loader": "^5.1.4",
     "eslint-config-airbnb": "0.0.8",
     "eslint-plugin-react": "^3.3.1",
+    "expect": "^1.9.0",
     "immutable": "^3.7.5",
     "node-libs-browser": "^0.5.2",
     "redux": "^2.0.0",

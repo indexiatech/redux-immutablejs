@@ -56,6 +56,16 @@ export default createReducer(initialState, {
 })
 ```
 
+If you want to specify the Immutable type to be used for implicit conversion, pass an constructor function at the end:
+
+```js
+export default createReducer([], {
+  [ADD_STUFF] (state, {stuff}) {
+    return state.add(stuff);
+  }
+}, true, ::Immutable.OrderedSet);
+
+```
 
 Please note that this is optional and `combineReducers` should work just fine if you prefer the old `switch` way.
 

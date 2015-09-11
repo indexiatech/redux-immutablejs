@@ -31,6 +31,7 @@
     "eslint-plugin-react": "^3.3.1",
     "expect": "^1.9.0",
     "immutable": "^3.7.5",
+    "mocha": "^2.3.2",
     "node-libs-browser": "^0.5.2",
     "redux": "^2.0.0",
     "webpack": "^1.9.11",

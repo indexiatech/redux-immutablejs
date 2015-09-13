@@ -47,12 +47,13 @@ const initialState = Immutable.fromJS({ isAuth: false })
  **/
 export default createReducer(initialState, {
   [LOGIN]: (state, action) => state.merge({
-    'isAuth': true, token: action.payload.token
+    isAuth: true,
+    token: action.payload.token
   }),
 
   [LOGOUT]: (domain) => domain.merge({
-    'isAuth': false,
-    'current_identity': {},
+    isAuth: false,
+    current_identity: {},
     token: undefined
   })
 })

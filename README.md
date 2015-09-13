@@ -26,8 +26,8 @@ import * as reducers from './reducers';
 const reducer = combineReducers(reducers);
 const state = Immutable.fromJS({});
 
-const state = reducer(state);
-export default createStore(reducer, state);
+const store = reducer(state);
+export default createStore(reducer, store);
 ```
 
 ## Immutable Handler Map reducer creator
@@ -46,13 +46,16 @@ const initialState = Immutable.fromJS({ isAuth: false })
  * Reducer domain that handles authentication & authorization.
  **/
 export default createReducer(initialState, {
-  [LOGIN] (state, action) {
-    return state.merge({ 'isAuth': true, token: action.payload.token })
-  },
+  [LOGIN]: (state, action) => state.merge({
+    isAuth: true,
+    token: action.payload.token
+  }),
 
-  [LOGOUT] (domain) {
-    return domain.merge({ 'isAuth': false, 'current_identity': {}, token: undefined })
-  }
+  [LOGOUT]: (domain) => domain.merge({
+    isAuth: false,
+    current_identity: {},
+    token: undefined
+  })
 })
 ```
 
@@ -60,9 +63,7 @@ If you want to specify the Immutable type to be used for implicit conversion, pa
 
 ```js
 export default createReducer([], {
-  [ADD_STUFF] (state, {stuff}) {
-    return state.add(stuff);
-  }
+  [ADD_STUFF]: (state, { stuff }) => state.add(stuff)
 }, true, ::Immutable.OrderedSet);
 
 ```

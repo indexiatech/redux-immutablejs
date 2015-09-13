@@ -1,6 +1,6 @@
 {
   "name": "redux-immutablejs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Redux Immutable facilities",
   "scripts": {
     "start": "node server.js",

@@ -22,7 +22,7 @@
   },
   "homepage": "http://indexiatech.github.io/redux-immutable",
   "peerDependencies": {
-    "redux": "^2.0.0",
+    "redux": "^2.0.0 || ^3.0.0",
     "immutable": "^3.7.5"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "immutable": "^3.7.5",
     "mocha": "^2.3.2",
     "node-libs-browser": "^0.5.2",
-    "redux": "^2.0.0",
+    "redux": "^3.0.0",
     "webpack": "^1.9.11",
     "webpack-dev-server": "^1.9.0"
   }

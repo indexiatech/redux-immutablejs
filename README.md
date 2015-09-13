@@ -27,7 +27,7 @@ const reducer = combineReducers(reducers);
 const state = Immutable.fromJS({});
 
 const store = reducer(state);
-export default createStore(reducer, state);
+export default createStore(reducer, store);
 ```
 
 ## Immutable Handler Map reducer creator

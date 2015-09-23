@@ -96,9 +96,7 @@ export default function combineReducers(reducers) {
     }
   });
 
-  var defaultState = finalReducers.map((r) => {
-    return r();
-  });
+  var defaultState = finalReducers.map(r => undefined);
   var stateShapeVerified;
 
   return function combination(state = defaultState, action) {

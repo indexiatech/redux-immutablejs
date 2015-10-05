@@ -77,5 +77,5 @@ Please note that this is optional and `combineReducers` should work just fine if
 
 This library doesn't dictate any specific reducer structure,
 While `redux-immutable` focusing on [CRC](https://github.com/gajus/canonical-reducer-composition), while this library
-provides some [convertion middlewares](https://github.com/gajus/redux-immutable/issues/3) from FSA to CCA
+provides some [conversion middlewares](https://github.com/gajus/redux-immutable/issues/3) from FSA to CCA
 and vise versa, if you feel like going with _Redux's vanilla_ is the right approach, then consider using our library.

@@ -6,14 +6,13 @@ const indexedOf = Immutable.Seq.Indexed.of;
 describe('Utils', () => {
   const initialState = Map();
   describe('combineReducers', () => {
+    const reducer = combineReducers({
+      counter: (state = 0, action = {}) =>
+        action.type === 'increment' ? state + 1 : state,
+      stack: (state = List(), action = {}) =>
+        action.type === 'push' ? state.push(action.value) : state
+    });
     it('should return a composite reducer that maps the state keys to given reducers', () => {
-      const reducer = combineReducers({
-        counter: (state = 0, action = {}) =>
-          action.type === 'increment' ? state + 1 : state,
-        stack: (state = List(), action = {}) =>
-          action.type === 'push' ? state.push(action.value) : state
-      });
-
       const s1 = reducer(initialState, { type: 'increment' });
       expect(Immutable.Map.isMap(s1)).toBe(true);
       expect(s1.get('counter')).toBe(1);
@@ -35,5 +34,10 @@ describe('Utils', () => {
       expect(reducer(initialState, { type: 'push' }).keySeq().equals(indexedOf('stack'))).toBe(true);
     });
 
+    it('returns the initial state when nothing changes', () => {
+      const s1 = reducer(initialState, { type: 'increment'});
+      const s2 = reducer(s1);
+      expect(s1).toBe(s2);
+    })
   });
 });

@@ -32,7 +32,7 @@ export default createStore(reducer, store);
 
 ## Immutable Handler Map reducer creator
 
-Using `createReducer` is an optional function that creates a reducer from a collection of handlers, except
+Using `createReducer` is an optional function that creates a reducer from a collection of handlers. In addition to
 getting rid of the _switch_ statement, it also provides the following benefits:
 
 1. If the given `initialState` type is mutated, it will get converted to an immutable type.

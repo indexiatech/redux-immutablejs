@@ -11,6 +11,10 @@
     "build:publish": "npm publish"
   },
   "main": "lib/index.js",
+  "files": [
+    "src",
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/indexiatech/redux-immutable.git"

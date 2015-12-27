@@ -39,5 +39,12 @@ describe('Utils', () => {
       const s2 = reducer(s1);
       expect(s1).toBe(s2);
     })
+
+    it('includes alll keys from original state', () => {
+      const unexpectedKeys = Map({ unexpected: true });
+      const reduced = reducer(unexpectedKeys, { type: 'INIT' });
+
+      expect( reduced.get('unexpected') ).toBe(true);
+    });
   });
 });

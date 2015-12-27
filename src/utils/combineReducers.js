@@ -100,15 +100,19 @@ export default function combineReducers(reducers) {
   var stateShapeVerified;
 
   return function combination(state = defaultState, action) {
-    var dirty = false;
-    var finalState = finalReducers.map((reducer, key) => {
-      var oldState = state.get(key);
-      var newState = reducer(oldState, action);
-      dirty = dirty || (oldState !== newState)
+
+    let finalState = state;
+    finalReducers.forEach( ( reducer, key ) => {
+      const oldState = state.get( key );
+      const newState = reducer( oldState, action );
+
       if (typeof newState === 'undefined') {
         throw new Error(getErrorMessage(key, action));
       }
-      return newState;
+
+      if( oldState != newState ) {
+        finalState = finalState.set( key, newState );
+      }
     });
 
     if ((
@@ -127,6 +131,6 @@ export default function combineReducers(reducers) {
       }
     }
 
-    return (dirty) ? finalState : state;
+    return finalState;
   };
 }

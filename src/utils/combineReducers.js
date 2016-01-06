@@ -110,9 +110,7 @@ export default function combineReducers(reducers) {
         throw new Error(getErrorMessage(key, action));
       }
 
-      if( oldState != newState ) {
-        finalState = finalState.set( key, newState );
-      }
+      finalState = finalState.set( key, newState );
     });
 
     if ((

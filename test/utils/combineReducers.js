@@ -35,7 +35,7 @@ describe('Utils', () => {
     });
 
     it('returns the initial state when nothing changes', () => {
-      const s1 = reducer(initialState, { type: 'increment'});
+      const s1 = reducer(initialState, { type: 'increment' });
       const s2 = reducer(s1);
       expect(s1).toBe(s2);
     })

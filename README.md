@@ -69,13 +69,3 @@ export default createReducer([], {
 ```
 
 Please note that this is optional and `combineReducers` should work just fine if you prefer the old `switch` way.
-
-
-# FAQ
-
-## How this library is different from 'redux-immutable' ?
-
-This library doesn't dictate any specific reducer structure.
-While `redux-immutable` focuses on [CRC](https://github.com/gajus/canonical-reducer-composition), this library
-provides some [conversion middlewares](https://github.com/gajus/redux-immutable/issues/3) from FSA to CCA
-and vise versa. If you feel like going with _Redux's vanilla_ is the right approach, then consider using our library.

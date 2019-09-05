@@ -63,7 +63,7 @@ If you want to specify the Immutable type to be used for implicit conversion, pa
 ```js
 export default createReducer([], {
   [ADD_STUFF]: (state, { stuff }) => state.add(stuff)
-}, true, ::Immutable.OrderedSet);
+}, true, Immutable.OrderedSet);
 
 ```
 

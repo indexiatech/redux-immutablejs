@@ -24,10 +24,9 @@ import Immutable from 'immutable';
 import * as reducers from './reducers';
 
 const reducer = combineReducers(reducers);
-const state = Immutable.fromJS({});
-
-const store = reducer(state);
-export default createStore(reducer, store);
+const preloadedState = Immutable.fromJS({});
+const store = createStore(reducer, preloadedState);
+export default store
 ```
 
 ## Immutable Handler Map reducer creator
